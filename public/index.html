@@ -1,0 +1,65 @@
+<html>
+<title>Among Us Video</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+
+<script src="app.js" defer async></script>
+
+<body>
+
+
+
+    <section id="cover">
+        <div id="cover-caption">
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+
+                        <div class="px-2">
+                            <div action="" class="justify-content-center">
+                                <div class="form-group">
+                                    <label class="sr-only">Testo</label>
+                                    <input type="text" class="form-control" placeholder="Testo" id="testo">
+                                </div>
+
+                                <button type="submit" id="invia" class="btn btn-primary btn-lg">Generate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="video" style="display: none;" class="min-vh-100">
+        <div id="cover-caption">
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+
+                        <div class="px-2">
+                            <div class="justify-content-center">
+                                <div class="form-group">
+                                    <video id="output" height="480" width="240" controls></video>
+                                </div>
+
+                                <button type="submit" id="download" class="btn btn-primary btn-lg">Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+</body>
+
+
+</html>
