@@ -1,12 +1,29 @@
 <html>
-<title>Among Us Video</title>
+<title>Among Us Video Generator</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
     crossorigin="anonymous"></script>
-
+<link rel="icon" type="image/png" href="favicon.png" />
 <script src="app.js" defer async></script>
+
+<style>
+    @font-face {
+        font-family: amongus;
+        src: url("font.ttf");
+
+    }
+
+    body {
+        background-color: #181818;
+    }
+
+    * {
+        font-family: amongus;
+        background-color: #181818;
+    }
+</style>
 
 <body>
 
@@ -21,9 +38,25 @@
                         <div class="px-2">
                             <div action="" class="justify-content-center">
                                 <div class="form-group">
-                                    <label class="sr-only">Testo</label>
-                                    <input type="text" class="form-control" placeholder="Testo" id="testo">
+                                    <label class="sr-only">Text</label>
+                                    <input type="text" class="form-control" placeholder="Text" id="testo">
                                 </div>
+                                <div style="display: block">
+                                    <select name="colori" id="colori" style="color: white">
+                                        <option value="darkgreen">Darkgreen</option>
+                                        <option value="black">Black</option>
+                                        <option value="brown">Brown</option>
+                                        <option value="magenta">Magenta</option>
+                                        <option value="orange">Orange</option>
+                                        <option value="purlple">Purple</option>
+                                        <option value="yellow">Yellow</option>
+                                        <option value="red">Red</option>
+
+
+
+                                    </select>
+                                </div>
+                                <div style="height: 2%; margin-bottom: 2%;"></div>
 
                                 <button type="submit" id="invia" class="btn btn-primary btn-lg">Generate</button>
                             </div>
@@ -33,7 +66,27 @@
             </div>
         </div>
     </section>
+    <div>
+        <section id="cover">
+            <div id="cover-caption">
+                <div class="container">
+                    <div class="row text-white">
+                        <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
 
+                            <div class="px-2">
+                                <div action="" class="justify-content-center">
+                                    <img src="loading.gif" id="loading"
+                                        style="width: 50%; height: 50%; display:none;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
     <section id="video" style="display: none;" class="min-vh-100">
         <div id="cover-caption">
             <div class="container">
@@ -42,10 +95,11 @@
 
                         <div class="px-2">
                             <div class="justify-content-center">
+                                <h1 style="color: white;">In 5 minutes it will be deleted
+                                </h1>
                                 <div class="form-group">
                                     <video id="output" height="480" width="240" controls></video>
                                 </div>
-
                                 <button type="submit" id="download" class="btn btn-primary btn-lg">Download</button>
                             </div>
                         </div>

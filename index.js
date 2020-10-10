@@ -13,8 +13,26 @@ let port = process.env.PORT || 3000;
 app.get("/video", async (req, res) => {
 
     let testo = req.query.testo;
+    let colore = req.query.colore;
+
+    if (testo.length > 15) {
+        res.status(400).send("Text must be less than 15 characters")
+        return;
+    }
+
+    if (testo.length === 0) {
+        res.status(400).send("Where's the text?")
+        return;
+    }
+
     let nome = uuid();
-    await convertVideo(nome, testo);
+    try {
+        await convertVideo(nome, testo, colore);
+
+    } catch (error) {
+        console.log(error)
+        return;
+    }
     let file = await readFile(`Final/${nome}.out.mp4`)
     res.setHeader('Content-Disposition', `attachment;filename=${nome}.mp4`);
     res.setHeader("Content-Type", "video/mp4");

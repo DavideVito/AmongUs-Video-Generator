@@ -2,13 +2,14 @@
 const ffmpeg = require('fluent-ffmpeg');
 const imagic = require('imagemagick');
 const { mkdir, rmdir, unlink } = require("fs").promises
+const removeDir = require("rimraf");
 const uuid = require("uuid").v4
 let cartelle = [];
 
 
 
 
-async function convertVideo(nome, testo) {
+async function convertVideo(nome, testo, colore) {
     let cartella = await generaImmagini(testo, nome);
 
     return new Promise((resolve, reject) => {
@@ -25,7 +26,7 @@ async function convertVideo(nome, testo) {
                     .inputOption("-itsoffset 3")
                     .complexFilter(
                         [
-                            "[1:v]colorkey=0x00ff00:0.3:0.2[ckout]",
+                            "[1:v]colorkey=0x1f8800:0.5:0.2[ckout]",
                             "[0:v][ckout]overlay=(W-w)/2:(H-h)/2"
                         ])
                     .audioCodec("copy")
@@ -33,16 +34,35 @@ async function convertVideo(nome, testo) {
 
                         ffmpeg()
                             .input(`tmp/${cartella}/${nome}.tmp.mp4`)
-                            .input(`Video/giallo.mp4`)
+                            .input(`Video/${colore}.mp4`)
                             .duration(5)
+
                             .complexFilter(
                                 [
-                                    "[1:v]colorkey=0x00ff00:0.3:0.2[ckout]",
+                                    "[1:v]colorkey=0x00ff00:0.1:0.1[ckout]",
                                     "[0:v][ckout]overlay=x='if(gte(t,0), -w+(t)*400, 3)':y=(H-h)/2",
+
                                 ])
                             .output(`Final/${nome}.out.mp4`)
-                            .on("end", () => { resolve(`Final/${nome}.out.mp4`) })
-                            .on("error", () => { reject(err) })
+                            .on("end", () => {
+
+                                removeDir(`tmp/${cartella}`, () => { console.log(`Files di tmp/${cartella} rimossi`) })
+                                // rmdir(`tmp/${cartella}`)
+
+                                setTimeout(() => {
+                                    unlink(`Final/${nome}.out.mp4`)
+
+
+                                }, 3000)
+
+
+
+
+
+
+                                resolve(`Final/${nome}.out.mp4`)
+                            })
+                            .on("error", (e) => { reject(e) })
                             .run();
 
 
@@ -90,7 +110,7 @@ async function generaImmagini(testo, nome) {
         let lettera = t[i];
         letterePrec += lettera;
         let n = aggiungi0(i);
-        let p = convertiImmagine(["Assets/Images/green.png", "-gravity", "Center", "-pointsize", "30", "-font", "Assets/font.ttf", "-fill", "white", "-pointsize", "80", "-annotate", "0", `${letterePrec}`, `tmp/${nomeCartella}/img-${n}.png`])
+        let p = convertiImmagine(["Assets/Images/green.png", "-gravity", "Center", "-pointsize", "30", "-font", "Assets/font.ttf", "-fill", "white", "-pointsize", "90", "-annotate", "0", `${letterePrec}`, `tmp/${nomeCartella}/img-${n}.png`])
         promises.push(p)
     }
 

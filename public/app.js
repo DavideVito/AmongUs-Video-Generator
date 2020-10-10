@@ -2,6 +2,8 @@ let testo = document.getElementById("testo");
 let bottone = document.getElementById("invia")
 let output = document.getElementById("output");
 let down = document.getElementById("download")
+let immagine = document.getElementById("loading");
+let colori = document.getElementById("colori");
 
 bottone.addEventListener("click", () => { main() })
 
@@ -9,20 +11,50 @@ bottone.addEventListener("click", () => { main() })
 
 async function main() {
 
+    document.getElementById("video").style.display = "none";
+    bottone.disabled = true
+
+    output.src = "";
+
+    if (testo.value > 15) {
+        alert("Il testo non deve contenere più di 15 caratteri");
+
+        document.getElementById("video").style.display = "none";
+        bottone.disabled = false;
+        output.src = "";
+
+        return;
+    }
+    if (testo.length === 0) {
+        alert("Testo vuoto")
+    }
+
+    let colore = colori.options[colori.selectedIndex].value
+
     let parametri = new URLSearchParams({
         testo: testo.value,
-
+        colore: colore
     })
 
-
+    immagine.style.display = "inline"
 
     let ris = await fetch(`/video?${parametri}`)
+    bottone.disabled = false;
+    if (ris.status === 400) {
+        alert("Text must not contain more than 15 characters");
 
+        document.getElementById("video").style.display = "none";
+
+        output.src = "";
+        immagine.style.display = "none"
+        return;
+    }
 
     let data = await ris.blob();
 
     data = await convertBlobToBase64(data);
 
+    immagine.style.display = "none"
 
     document.getElementById("video").style.display = "block";
 
