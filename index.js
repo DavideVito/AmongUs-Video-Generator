@@ -27,8 +27,9 @@ app.get("/video", async (req, res) => {
 
     let nome = uuid();
     try {
+        console.time("ciao")
         await convertVideo(nome, testo, colore);
-
+        console.timeEnd("ciao")
     } catch (error) {
         console.log(error)
         return;
