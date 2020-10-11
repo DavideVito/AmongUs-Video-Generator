@@ -25,6 +25,8 @@ async function convertVideo(nome, testo, colore) {
                     .input("Video/background.mp4")
                     .input(`tmp/${cartella}/scritta.mp4`)
                     .inputOption("-itsoffset 3")
+                    .input("Assets/morse.m4a")
+                    .inputOption("-itsoffset 3")
                     .complexFilter(
                         [
                             "[1:v]colorkey=0x1f8800:0.5:0.2[ckout]",
