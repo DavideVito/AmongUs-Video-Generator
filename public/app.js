@@ -1,3 +1,13 @@
+'use strict';
+
+
+
+
+
+
+
+
+
 let testo = document.getElementById("testo");
 let bottone = document.getElementById("invia")
 let output = document.getElementById("output");
@@ -258,3 +268,5 @@ function convertBlobToBase64(blob) {
         return true;
     }; /* end download() */
 }));
+
+
