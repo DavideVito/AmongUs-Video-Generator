@@ -1,13 +1,19 @@
-<html>
-<title>Among Us Video Generator</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>
-<link rel="icon" type="image/png" href="favicon.png" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="app.js" defer async></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Among Us Video Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="app.js" defer async></script>
+    <meta name="description" content="Amongus player espelled video animation">
+    <meta name="keywords" content="AmongUs Video Generator Player Espelled Animation">
+    <meta name="author" content="Davide Vitiello">
+
+</head>
 
 <style>
     @font-face {
@@ -32,46 +38,8 @@
 
 <body>
 
+    <main>
 
-
-    <section id="cover">
-        <div id="cover-caption">
-            <div class="container">
-                <div class="row text-white">
-                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-
-                        <div class="px-2">
-                            <div action="" class="justify-content-center">
-                                <div class="form-group">
-                                    <label class="sr-only">Text</label>
-                                    <input type="text" class="form-control" placeholder="Text" id="testo">
-                                </div>
-                                <div style="display: block">
-                                    <select name="colori" id="colori" style="color: white">
-                                        <option value="darkgreen">Darkgreen</option>
-                                        <option value="black">Black</option>
-                                        <option value="brown">Brown</option>
-                                        <option value="magenta">Magenta</option>
-                                        <option value="orange">Orange</option>
-                                        <option value="purlple">Purple</option>
-                                        <option value="yellow">Yellow</option>
-                                        <option value="red">Red</option>
-
-
-
-                                    </select>
-                                </div>
-                                <div style="height: 2%; margin-bottom: 2%;"></div>
-
-                                <button type="submit" id="invia" class="btn btn-primary btn-lg">Generate</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div>
         <section id="cover">
             <div id="cover-caption">
                 <div class="container">
@@ -80,12 +48,122 @@
 
                             <div class="px-2">
                                 <div action="" class="justify-content-center">
-                                    <div id="loading" style="display:none;">
-                                        <p style="display: block">Video generation can take up to 30s</p>
-
-
-                                        <img src="loading.gif" style="width: 50%; height: 50%; " />
+                                    <div class="form-group">
+                                        <label class="sr-only" for="testo">Text</label>
+                                        <input type="text" class="form-control" style="font-size: 20" placeholder="Text"
+                                            name="testo" id="testo">
                                     </div>
+                                    <div class="form-group"> <label class="sr-only" for="colori">Select color:</label>
+                                        <div style="display: block; margin-top: 25px; margin-bottom: 25px;">
+                                            <select name="colori" id="colori" style="color: white">
+                                                <option value="darkgreen">Darkgreen</option>
+                                                <option value="black">Black</option>
+                                                <option value="brown">Brown</option>
+                                                <option value="magenta">Magenta</option>
+                                                <option value="orange">Orange</option>
+                                                <option value="purple">Purple</option>
+                                                <option value="yellow">Yellow</option>
+                                                <option value="red">Red</option>
+
+
+
+                                            </select></div>
+                                    </div>
+                                    <div style="height: 2%; margin-bottom: 2%;"></div>
+
+                                    <button type="submit" id="invia" class="btn btn-primary btn-lg">Generate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div>
+            <section id="cover">
+                <div id="cover-caption">
+                    <div class="container">
+                        <div class="row text-white">
+                            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+
+                                <div class="px-2">
+                                    <div action="" class="justify-content-center">
+                                        <div id="loading" style="display:none;">
+                                            <p style="display: block">Video generation can take up to 30s</p>
+
+
+                                            <img src="loading.gif" style="width: 50%; height: 50%; " />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+        <section id="video" style="display: none;" class="min-vh-100">
+            <div id="cover-caption">
+                <div class="container">
+                    <div class="row text-white">
+                        <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+
+                            <div class="px-2">
+                                <div class="justify-content-center">
+                                    <div class="form-group">
+                                        <video id="output" height="480" width="240" controls></video>
+                                    </div>
+                                    <button type="submit" id="download" class="btn btn-primary btn-lg">Download</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row text-white">
+                        <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+
+                            <div class="px-2">
+                                <div class="justify-content-center">
+                                    <p>
+                                        To create a live photo:
+                                    <ol>
+                                        <li>Download from the <b>appstore</b> <a
+                                                href="https://apps.apple.com/us/app/intolive-live-wallpapers/id1061859052"><code>intoLive</code></a>
+                                        </li>
+                                        <li>
+                                            <b>Download</b> this video and <b>save</b> in into <b>your photo library</b>
+                                        </li>
+                                        <li>
+                                            Open <a href="intolive://"><code>intoLive</code></a>
+                                        </li>
+                                        <li>
+                                            Select your <b>video</b> from the <b>list</b>
+                                        </li>
+                                        <li>
+                                            Click <b>make</b> in the <b>top-right corner</b>
+                                        </li>
+                                        <li>
+                                            Select no repeat
+                                        </li>
+                                        <li>
+                                            Click <b>save live photo</b>
+                                        </li>
+                                        <li>
+                                            Open the photo app again
+                                        </li>
+                                        <li>
+                                            Click on the newly created photo
+                                        </li>
+                                        <li>
+                                            Set it as a wallpaper
+                                        </li>
+                                        <li>
+                                            Make sure that the <code>Live Photo</code> option is on
+                                        </li>
+
+                                    </ol>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -94,77 +172,7 @@
             </div>
         </section>
 
-
-    </div>
-    <section id="video" style="display: none;" class="min-vh-100">
-        <div id="cover-caption">
-            <div class="container">
-                <div class="row text-white">
-                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-
-                        <div class="px-2">
-                            <div class="justify-content-center">
-                                <div class="form-group">
-                                    <video id="output" height="480" width="240" controls></video>
-                                </div>
-                                <button type="submit" id="download" class="btn btn-primary btn-lg">Download</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row text-white">
-                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-
-                        <div class="px-2">
-                            <div class="justify-content-center">
-                                <p>
-                                    To create a live photo:
-                                <ol>
-                                    <li>Download from the <b>appstore</b> <a
-                                            href="https://apps.apple.com/us/app/intolive-live-wallpapers/id1061859052"><code>intoLive</code></a>
-                                    </li>
-                                    <li>
-                                        <b>Download</b> this video and <b>save</b> in into <b>your photo library</b>
-                                    </li>
-                                    <li>
-                                        Open <a href="intolive://"><code>intoLive</code></a>
-                                    </li>
-                                    <li>
-                                        Select your <b>video</b> from the <b>list</b>
-                                    </li>
-                                    <li>
-                                        Click <b>make</b> in the <b>top-right corner</b>
-                                    </li>
-                                    <li>
-                                        Select no repeat
-                                    </li>
-                                    <li>
-                                        Click <b>save live photo</b>
-                                    </li>
-                                    <li>
-                                        Open the photo app again
-                                    </li>
-                                    <li>
-                                        Click on the newly created photo
-                                    </li>
-                                    <li>
-                                        Set it as a wallpaper
-                                    </li>
-                                    <li>
-                                        Make sure that the <code>Live Photo</code> option is on
-                                    </li>
-
-                                </ol>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
+    </main>
 
 
 

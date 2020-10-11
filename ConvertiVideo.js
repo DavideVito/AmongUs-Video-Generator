@@ -47,13 +47,15 @@ async function convertVideo(nome, testo, colore) {
                             .on("end", () => {
 
                                 removeDir(`tmp/${cartella}`, () => { console.log(`Files di tmp/${cartella} rimossi`) })
-                                // rmdir(`tmp/${cartella}`)
+                                unlink(`Final/${nome}.out.mp4`).then(() => {
 
-                                setTimeout(() => {
-                                    unlink(`Final/${nome}.out.mp4`)
+                                    console.log(`file: Final/${nome}.out.mp4 rimosso asgara`)
 
 
-                                }, 3000)
+
+
+                                })
+
 
 
 

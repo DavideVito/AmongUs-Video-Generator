@@ -3,6 +3,7 @@ const { convertVideo } = require("./ConvertiVideo");
 const uuid = require("uuid").v4
 const { readFile } = require("fs").promises
 
+
 const app = express();
 
 app.use(express.static("public"))
@@ -32,6 +33,7 @@ app.get("/video", async (req, res) => {
         console.timeEnd("ciao")
     } catch (error) {
         console.log(error)
+        res.status(400).send("The color u selected doesn't even exists for the god sake")
         return;
     }
     let file = await readFile(`Final/${nome}.out.mp4`)
