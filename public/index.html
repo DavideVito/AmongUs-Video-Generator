@@ -6,6 +6,7 @@
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
     crossorigin="anonymous"></script>
 <link rel="icon" type="image/png" href="favicon.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="app.js" defer async></script>
 
 <style>
@@ -22,6 +23,10 @@
     * {
         font-family: amongus;
         background-color: #181818;
+    }
+
+    code {
+        color: #007bff;
     }
 </style>
 
@@ -75,8 +80,12 @@
 
                             <div class="px-2">
                                 <div action="" class="justify-content-center">
-                                    <img src="loading.gif" id="loading"
-                                        style="width: 50%; height: 50%; display:none;" />
+                                    <div id="loading" style="display:none;">
+                                        <p style="display: block">Video generation can take up to 30s</p>
+
+
+                                        <img src="loading.gif" style="width: 50%; height: 50%; " />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -95,12 +104,58 @@
 
                         <div class="px-2">
                             <div class="justify-content-center">
-                                <h1 style="color: white;">In 5 minutes it will be deleted
-                                </h1>
                                 <div class="form-group">
                                     <video id="output" height="480" width="240" controls></video>
                                 </div>
                                 <button type="submit" id="download" class="btn btn-primary btn-lg">Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-white">
+                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+
+                        <div class="px-2">
+                            <div class="justify-content-center">
+                                <p>
+                                    To create a live photo:
+                                <ol>
+                                    <li>Download from the <b>appstore</b> <a
+                                            href="https://apps.apple.com/us/app/intolive-live-wallpapers/id1061859052"><code>intoLive</code></a>
+                                    </li>
+                                    <li>
+                                        <b>Download</b> this video and <b>save</b> in into <b>your photo library</b>
+                                    </li>
+                                    <li>
+                                        Open <a href="intolive://"><code>intoLive</code></a>
+                                    </li>
+                                    <li>
+                                        Select your <b>video</b> from the <b>list</b>
+                                    </li>
+                                    <li>
+                                        Click <b>make</b> in the <b>top-right corner</b>
+                                    </li>
+                                    <li>
+                                        Select no repeat
+                                    </li>
+                                    <li>
+                                        Click <b>save live photo</b>
+                                    </li>
+                                    <li>
+                                        Open the photo app again
+                                    </li>
+                                    <li>
+                                        Click on the newly created photo
+                                    </li>
+                                    <li>
+                                        Set it as a wallpaper
+                                    </li>
+                                    <li>
+                                        Make sure that the <code>Live Photo</code> option is on
+                                    </li>
+
+                                </ol>
+                                </p>
                             </div>
                         </div>
                     </div>
